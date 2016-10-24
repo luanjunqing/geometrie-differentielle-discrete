@@ -31,6 +31,15 @@ class Curve {
     this.centerOfMass().drawVertex();
   }
 
+  void drawVectors() {
+    int n = vertices.size();
+    Vector current;
+    for(int i=0; i <= n-1; i++) {
+      current = vertices.get(i);
+      current.drawVector(this.centerOfMass());
+    }
+  }
+
   void shift(ArrayList<Vector> shifts) {
     // one should check that the size of both list is the same ...
     //Vector v,s;

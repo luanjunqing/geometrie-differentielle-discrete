@@ -43,7 +43,7 @@ class Vector {
   void normalize() {
     float mag = sqrt ((float)(x*x+y*y));
     x = x/mag;
-    y= y/mag;
+    y = y/mag;
   }
 
   void rot() {
@@ -57,4 +57,19 @@ class Vector {
   void drawVertex(){
     ellipse((float)x,(float)y,vertexSize,vertexSize);
   }
+
+  void drawVector(Vector v){
+    Vector d = new Vector(v.x - x,v.y - y);
+    d.normalize();
+    stroke(124,192,209);
+    line((float)x,(float)y,(float)d.x,(float)d.y);
+    pushMatrix();
+      translate(v.x,v.y);
+      rotate(atan2(x-d.x,d.y-y));
+      line(0,0,-10,-10);
+      line(0,0,10,-10);
+    popMatrix();
+    stroke(0);
+  }
+
 }
