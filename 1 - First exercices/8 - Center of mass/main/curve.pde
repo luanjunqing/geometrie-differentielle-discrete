@@ -49,7 +49,7 @@ class Curve {
     for(int i=0 ; i <= n-1 ; ++i) {
       c.add(vertices.get(i));
     }
-    c.mult(1/n);
+    c.mult(1.0/n);
     return c;
   }
 }
